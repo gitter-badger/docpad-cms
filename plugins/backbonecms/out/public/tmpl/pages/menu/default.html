@@ -1,0 +1,42 @@
+<div id="page"><p></p>
+
+    <h2>Menus</h2>
+
+    <div class="well"><a class="btn btn-primary btn-small" href="#menu/edit"><span
+            class="icon-plus icon-white"></span> Create menu</a></div>
+    <table id="list" class="list-menus table table-hover">
+        <thead>
+        <tr>
+            <td class="item-name">Name</td>
+            <td class="item-url">URL</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i in collection) { %>
+        <% if (collection[i].meta.parent == 'Top menu') %>
+        <tr>
+            <td class="field-name"><%- collection[i].meta.title %></td>
+            <td class="field-url"><%- collection[i].meta.href %></td>
+            <td>
+                <a class="btn btn-primary btn-small" href="#menu/edit/path/<%= collection[i].relativePath %>">
+                    <span class="icon-pencil icon-white"></span> Edit
+                </a>
+            </td>
+        </tr>
+            <% for(var j in collection) { %>
+            <% if (collection[j].meta.parent == collection[i].meta.title) %>
+            <tr>
+                <td class="field-name sub-menu-level"><%- collection[j].meta.title %></td>
+                <td class="field-url"><%- collection[j].meta.href %></td>
+                <td>
+                    <a class="btn btn-primary btn-small" href="#menu/edit/path/<%= collection[j].relativePath %>">
+                        <span class="icon-pencil icon-white"></span> Edit
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        <% } %>
+        </tbody>
+    </table>
+    <p></p></div>

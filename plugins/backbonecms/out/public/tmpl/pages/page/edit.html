@@ -1,0 +1,140 @@
+<div id="page">
+<p></p>
+
+<h2>Edit page</h2>
+
+<div id="edit-form-confirm-delete" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header"><h4>Delete page?</h4></div>
+    <div class="modal-body"><p>Doing this will erase permanently all data related to this content. It cannot be
+        undone.</p></div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button id="edit-form-confirm-delete-button" class="btn btn-danger">Delete page</button>
+    </div>
+</div>
+
+<div class="well" style="display: block;">
+    <a id="edit-form-list-button" class="btn btn-primary btn-small form-delete-button" href="#<%= page %>">
+        <span class="icon-arrow-left icon-white"></span> Pages
+    </a>
+    &nbsp;
+    <a id="edit-form-delete-button" class="btn btn-danger btn-small form-delete-button" href="#delete" data-toggle="modal">
+        <span class="icon-trash icon-white"></span> Delete page
+    </a>
+    &nbsp;
+    <a id="edit-form-save-button" class="btn btn-success btn-small form-save-button" href="#save" style="display: inline-block;">
+        <span class="icon-download-alt icon-white"></span> Save page
+    </a>
+</div>
+
+<div class="error-messages"></div>
+
+<div class="well" style="display: block;">
+    <form id="edit-form" class="form-horizontal main-edit-form" onsubmit="return false;">
+        <div id="field-edit-title" class="control-group form-component-text">
+            <div class="form-field-content">
+                <label class="control-label" for="form-input-edit-title">Title</label>
+
+                <div class="controls">
+                    <input id="form-input-edit-title" class="form-value input-xlarge no-halo" type="text" value="<%= document.meta.title %>" placeholder="Title" name="title">
+                </div>
+            </div>
+        </div>
+        <div id="field-edit-content" class="control-group form-component-textarea">
+            <div class="form-field-content">
+                <label class="control-label" for="form-input-edit-content">Content</label>
+
+                <div class="controls">
+                    <textarea id="form-input-edit-content" class="form-value input-xlarge no-halo" name="content" ><%= document.content %></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div id="field-edit-visibility" class="control-group form-component-choice">
+            <div class="form-field-content">
+                <label class="control-label" for="form-input-edit-visibility">Visibility</label>
+
+                <div class="controls">
+                    <div id="form-input-edit-visibility" class="radio-list">
+                        <label class="radio-inline">
+                            <input id="form-input-edit-visibility-0" class="form-value first-checked" type="radio" name="visibility" value="Visible" <%= ((!document.meta.visibility || document.meta.visibility == 'Visible') ? 'checked="checked"' : '') %>>
+                            Visible
+                        </label>
+                        &nbsp;
+                        <label class="radio-inline">
+                            <input id="form-input-edit-visibility-1" class="form-value" type="radio" name="visibility" value="Not visible" <%= (document.meta.visibility == 'Not visible' ? 'checked="checked"' : '') %>>
+                            Not visible
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="field-edit-pagePath" class="control-group form-component-text">
+            <div class="form-field-content">
+                <label class="control-label" for="form-input-edit-pagePath">Page path</label>
+                <div class="controls">
+                    <input id="form-input-edit-pagePath" class="form-value input-xlarge no-halo" type="text" value="<%= document.pagePath %>" placeholder="Page path" name="pagePath">
+                </div>
+            </div>
+        </div>
+
+        <div id="field-edit-form" class="control-group form-component-choice">
+            <div class="form-field-content">
+                <label class="control-label" for="form-input-edit-form">Form for this page</label>
+
+                <div class="controls">
+                    <select id="form-input-edit-form" class="input-xlarge form-value no-halo" name="form" data-selected="<%= document.meta.form %>"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="field-edit-image" class="control-group form-component-file" data-use="standard">
+            <div class="form-field-content">
+                <label class="control-label" for="form-input-edit-image">Image</label>
+
+                <div class="controls">
+                    <input id="form-input-edit-image-hidden" class="form-value" name="image" type="hidden" value="<%= (document.meta.cms && document.meta.cms.image ? document.meta.cms.image.standard.url : '') %>">
+
+                    <div class="state state-input-file" style="display: block;">
+                        <input id="form-input-edit-image" name="image-tmp" type="file">
+                    </div>
+
+
+                    <div id="form-input-edit-image-placeholder"></div>
+
+                    <div id="cover_progress" class="progressbar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bar" style="width:0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<p></p>
+</div>
+
+<div id="fileDeleteModal" class="modal fade in" tabindex="-1" role="basic">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h3>Delete file</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row-fluid">
+                    <div class="span12">
+                        Are you sure you want to delete file "<span class="file-name-to-delete"></span>"?
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn" id="buttonCancel">Cancel</button>
+                <button type="button" data-dismiss="modal" class="btn blue" id="buttonDelete">Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+---
+cms:
+    image: null
+title: Home
+visibility: Visible
+pagePath: /
+form: 
+image: 
+type: page
+layout: home
+---
+<h2>Share with friends</h2>
+<p>Share your photos all over the internet tubes like a real magician! Post your photos in an album and watch your album be spread like a virus all over the web clouds. You’ll love this!</p>
+<div class="w-widget w-widget-twitter social-widget"><iframe style="border: none; overflow: hidden; width: 55px; height: 62px;" src="https://platform.twitter.com/widgets/tweet_button.html#url=http%3A%2F%2Fwebflow.com&counturl=webflow.com&text=Check%20out%20this%20site&count=vertical&size=m&dnt=true" width="300" height="150" frameborder="0" scrolling="no"></iframe></div>
+<div class="w-widget w-widget-gplus social-widget"> </div>
+<div class="w-widget w-widget-facebook social-widget"><iframe style="border: none; overflow: hidden; width: 55px; height: 65px;" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fwebflow&layout=box_count&locale=en_US&action=like&show_faces=false&share=false" width="300" height="150" frameborder="0" scrolling="no"></iframe></div>

@@ -1,0 +1,71 @@
+<div id="page"><p></p>
+
+    <h2>Files</h2>
+
+    <div class="well">
+        <div id="field-edit-image" class="control-group form-component-file" data-use="standard">
+            <div class="form-field-content">
+                <div class="controls">
+                    <div class="state state-input-file" style="display: block;">
+                        <input id="form-input-edit-image-tmp" name="image-tmp" type="file">
+                    </div>
+
+
+                    <div id="form-input-edit-image-placeholder"></div>
+
+                    <div id="cover_progress" class="progressbar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bar" style="width:0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table id="list" class="list-pages table table-hover">
+        <thead>
+        <tr>
+            <td class="item-url">URL</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i in collection) { %>
+        <tr>
+            <td class="field-url">
+                <a href="<%= collection[i].url %>"><%= collection[i].url %></a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-small delete-file" href="#delete<%= collection[i].url %>">
+                    <span class="icon-pencil icon-white"></span> Delete
+                </a>
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <p></p>
+</div>
+
+
+<div id="fileDeleteModal" class="modal fade in" tabindex="-1" role="basic">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h3>Delete file</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row-fluid">
+                    <div class="span12">
+                        Are you sure you want to delete file "<span class="file-name-to-delete"></span>"?
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn" id="buttonCancel">Cancel</button>
+                <button type="button" data-dismiss="modal" class="btn blue" id="buttonDelete">Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>

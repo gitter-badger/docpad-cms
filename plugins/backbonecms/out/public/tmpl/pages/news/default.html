@@ -1,0 +1,30 @@
+<div id="page"><p></p>
+
+    <h2>News</h2>
+
+    <div class="well"><a class="btn btn-primary btn-small" href="#news/edit"><span
+            class="icon-plus icon-white"></span> Create news</a></div>
+    <table id="list" class="list-news table table-hover">
+        <thead>
+        <tr>
+            <td class="item-name">Name</td>
+            <td class="item-date">Date</td>
+            <td class="item-url">URL</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+            <% for(var i in collection) { %>
+            <tr>
+                <td class="field-name"><%- collection[i].meta.title %></td>
+                <td class="field-date"><%- collection[i].meta.date %></td>
+                <td class="field-url">
+                    <a href="<%= collection[i].url %>"><%= collection[i].url %></a>
+                </td>
+                <td><a class="btn btn-primary btn-small" href="#<%= page %>/edit/path/<%= collection[i].relativePath %>"><span
+                        class="icon-pencil icon-white"></span> Edit</a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <p></p></div>

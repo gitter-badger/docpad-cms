@@ -1,0 +1,43 @@
+{
+  "name": "docpad-plugin-backbonecms",
+  "version": "2.0.11",
+  "description": "Add admin features to docpad.",
+  "homepage": "",
+  "keywords": [
+    "docpad",
+    "docpad-plugin",
+    "cms",
+    "backbone"
+  ],
+  "author": {
+    "name": "MatrosSkin",
+    "email": "eugeni@default-value.com"
+  },
+  "maintainers": [{
+      "name": "MatrosSkin",
+      "email": "eugeni@default-value.com"
+  }],
+  "contributors": [{
+      "name": "MatrosSkin",
+      "email": "eugeni@default-value.com"
+  }],
+  "bugs": {
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=0.10.2",
+    "docpad": ">=6"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "~1.6.2"
+  },
+  "main": "./out/backbonecms.plugin.js",
+  "scripts": {},
+  "readme": "",
+  "readmeFilename": "README.md"
+}

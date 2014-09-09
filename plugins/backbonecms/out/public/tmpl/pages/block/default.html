@@ -1,0 +1,26 @@
+<div id="page"><p></p>
+
+    <h2>Blocks</h2>
+
+    <div class="well"><a class="btn btn-primary btn-small" href="#block/edit"><span
+            class="icon-plus icon-white"></span> Create block</a></div>
+    <table id="list" class="list-blocks table table-hover">
+        <thead>
+        <tr>
+            <td class="item-name">Name</td>
+            <td class="item-type">Type</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+            <% for(var i in collection) { %>
+            <tr>
+                <td class="field-name"><%= collection[i].meta.name %></td>
+                <td class="field-type"><%= collection[i].meta.blockType %></td>
+                <td><a class="btn btn-primary btn-small" href="#<%= page %>/edit/path/<%= collection[i].relativePath %>"><span
+                        class="icon-pencil icon-white"></span> Edit</a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <p></p></div>

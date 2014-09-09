@@ -1,0 +1,73 @@
+<div id="page">
+  <p></p>
+  <h2>Edit params</h2>
+  <div class="well" style="display: block;">
+    <a id="edit-form-save-button" class="btn btn-success btn-small form-save-button" href="#save">
+      <span class="icon-download-alt icon-white"></span>
+      Save params
+    </a>
+  </div>
+  <div class="well" style="display: block;">
+    <form id="edit-form" class="form-horizontal main-edit-form" onsubmit="return false;">
+      <div id="field-edit-pageImage" class="control-group form-component-file" data-use="standard">
+        <div class="form-field-content">
+          <label class="control-label" for="form-input-edit-pageImage">Thumbnail for Pages</label>
+          <div class="controls" style="position: relative;">
+            <div class="state state-input-file" style="display: block;">
+              <input id="form-input-edit-pageImage" class="input-xlarge" type="file" name="file[pageImage]">
+              <input id="form-input-edit-pageImage-hidden" class="form-value" type="hidden" value="<%= (document.meta.cms && document.meta.cms.pageImage ? document.meta.cms.pageImage.standard.url : '' ) %>" name="pageImage">
+
+              <div id="form-input-edit-pageImage-placeholder"></div>
+
+              <div id="cover_progress_pageImage" class="progressbar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  <div class="bar" style="width:0%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="field-edit-newsImage" class="control-group form-component-file" data-use="standard">
+        <div class="form-field-content">
+          <label class="control-label" for="form-input-edit-newsImage">Thumbnail for News</label>
+          <div class="controls" style="position: relative;">
+            <div class="state state-input-file">
+              <input id="form-input-edit-newsImage" class="input-xlarge" type="file" name="file[newsImage]">
+              <input id="form-input-edit-newsImage-hidden" class="form-value" type="hidden" value="<%= (document.meta.cms && document.meta.cms.newsImage ? document.meta.cms.newsImage.standard.url : '' ) %>" name="newsImage">
+
+              <div id="form-input-edit-newsImage-placeholder"></div>
+
+              <div id="cover_progress_newsImage" class="progressbar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  <div class="bar" style="width:0%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <p></p>
+</div>
+
+<div id="fileDeleteModal" class="modal fade in" tabindex="-1" role="basic">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h3>Delete file</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row-fluid">
+                    <div class="span12">
+                        Are you sure you want to delete file "<span class="file-name-to-delete"></span>"?
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn" id="buttonCancel">Cancel</button>
+                <button type="button" data-dismiss="modal" class="btn blue" id="buttonDelete">Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>

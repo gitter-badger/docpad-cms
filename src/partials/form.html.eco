@@ -1,0 +1,173 @@
+<% for field in @fieldList: %>
+<div class="input-block-wrap">
+    <label class="before-input-label"><%= field.label %></label>
+    <div>
+    <input type="hidden" name="field-name-<%- field.cid %>" value="<%= field.label %>"/>
+    <% if field.field_type is 'text': %>
+    <input
+    <% if field.required: %>
+    <%- 'required="required"' %>
+    <% end %>
+    name="field-value-<%- field.cid %>" type="<%= field.field_type %>" placeholder="<%= field.label %>">
+    <% end %>
+
+    <% if field.field_type is 'checkboxes': %>
+    <% for field_option in field.field_options.options: %>
+    <label class="checkbox-label">
+        <input
+        <% if field_option.checked: %>
+        <%- 'checked="checked"' %>
+        <% end %>
+        name="field-value-<%- field.cid %>" type="checkbox" value="<%= field_option.label %>">
+        <%= field_option.label %>
+    </label>
+    <% end %>
+
+    <% if field.field_options.include_other_option: %>
+                        <span class="checkbox-label include-other-option">
+                            <input name="field-value-<%- field.cid %>" type="checkbox" value="include-other-option">
+                            <input name="field-value-<%- field.cid %>-include-other-option" type="text" class="include-other-option">
+                        </span>
+    <% end %>
+    <% end %>
+
+    <% if field.field_type is 'dropdown': %>
+    <select
+    <% if field.required: %>
+    <%- 'required="required"' %>
+    <% end %>
+    name="field-value-<%- field.cid %>">
+
+
+    <% if field.field_options.include_blank_option: %>
+    <option></option>
+    <% end %>
+
+    <% for field_option in field.field_options.options: %>
+    <option
+    <% if field_option.checked: %>
+    <%- 'selected="selected"' %>
+    <% end %>
+    value="<%= field_option.label %>"><%= field_option.label %></option>
+    <% end %>
+    </select>
+    <% end %>
+
+    <% if field.field_type is 'radio': %>
+    <% for field_option in field.field_options.options: %>
+    <label class="radio-label">
+        <input
+        <% if field.required: %>
+        <%- 'required="required"' %>
+        <% end %>
+        <% if field_option.checked: %>
+        <%- 'checked="checked"' %>
+        <% end %>
+        name="field-value-<%- field.cid %>" type="radio" value="<%= field_option.label %>">
+        <%= field_option.label %>
+    </label>
+    <% end %>
+
+    <% if field.field_options.include_other_option: %>
+                        <span class="radio-label include-other-option">
+                            <input
+                                <% if field.required: %>
+                                    <%- 'required="required"' %>
+                                <% end %>
+                            name="field-value-<%- field.cid %>" type="radio" value="include-other-option">
+                            <input name="field-value-<%- field.cid %>-include-other-option" type="text" class="include-other-option"/>
+                        </span>
+    <% end %>
+    <% end %>
+
+    <% if field.field_type is 'paragraph': %>
+    <textarea
+    <% if field.required: %>
+    <%- 'required="required"' %>
+    <% end %>
+    name="field-value-<%- field.cid %>" placeholder="<%= field.label %>"></textarea>
+    <% end %>
+
+    <% if field.field_type is 'file': %>
+    <input
+    <% if field.required: %>
+    <%- 'required="required"' %>
+    <% end %>
+    type="hidden" name="field-value-<%- field.cid %>" value=""/>
+    <input type="hidden" name="field-type-<%- field.cid %>" value="file"/>
+    <input name="file-field-value-<%- field.cid %>" type="<%= field.field_type %>" placeholder="<%= field.label %>">
+    <div id="file-field-value-<%- field.cid %>-placeholder" class="like-input"></div>
+    <div id="progress-field-value-<%- field.cid %>" class="like-input progressbar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="bar" style="width:0%;"></div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function deleteUploadedFile($placeholder) {
+                var deleteUrl;
+                if ($placeholder.find('button.form-upload-delete-btn').eq(0)) {
+                    deleteUrl = $placeholder.find('button.form-upload-delete-btn').attr('data-deleteUrl');
+                }
+                if (!deleteUrl) return;
+
+                $.ajax( {
+                    url: deleteUrl,
+                    type: 'DELETE'
+                });
+                $('[name="field-value-<%- field.cid %>"]').val('');
+                $placeholder.html('');
+            }
+
+            var $fileTmp = $('[name="file-field-value-<%- field.cid %>"]');
+            $fileTmp.fileupload({
+                method: 'POST',
+                dataType:'json',
+                url:'/upload/formfiles',
+                autoUpload: true,
+                acceptFileTypes:/.*/i,
+                maxNumberOfFiles: 1,
+                dropZone: null,
+                process:[
+                    {
+                        action:'load',
+                        fileTypes:/^.*$/,
+                        maxFileSize: 20000000 // 20MB
+                    }
+                ],
+                progressall:function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress-field-value-<%- field.cid %> .bar').css('width', progress + '%');
+                }
+                ,
+                done: function(e, data) {
+                    console.log(data.textStatus);
+                    var files = data.result.files;
+                    files = files.reverse();
+                    var file = files[0];
+                    var cleanFileUrl = file.url.split('/formfiles/').reverse()[0]
+
+                    $('[name="field-value-<%- field.cid %>"]').val(cleanFileUrl);
+
+                    var $placeholder = $('#file-field-value-<%- field.cid %>-placeholder');
+                    deleteUploadedFile($placeholder);
+                    $placeholder.html($('<span>',
+                            {
+                                text: cleanFileUrl
+                            }
+                    ));
+                    $placeholder.append($('<button>', {
+                        type: 'button',
+                        text: 'Cancel',
+                        class: 'form-upload-delete-btn',
+                        'data-deleteUrl': file.deleteUrl
+                    }));
+                    $placeholder.find('button.form-upload-delete-btn').click(function(event) {
+                        deleteUploadedFile($placeholder);
+                    });
+                }
+            });
+        });
+    </script>
+    <% end %>
+    </div>
+</div>
+<% end %>

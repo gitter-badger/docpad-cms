@@ -1,0 +1,18 @@
+---
+name: 'b1 top'
+type: block
+blockType: Home
+visibility: Visible
+write: false
+render: false
+cms:
+    name: 'b1 top'
+    content: "<section class=\"widget widget-block-a slider-slim-arrows\">\n<div class=\"slider-wrap\"><span class=\"l\">&nbsp;</span> <span class=\"r\">&nbsp;</span>\n<div class=\"slider\">\n<div class=\"slide\">\n<div class=\"img\"><a><img src=\"../../images/block-1.jpg\" alt=\"\" /></a></div>\n</div>\n<div class=\"slide\">\n<div class=\"img\"><a><img src=\"../../images/block-1.jpg\" alt=\"\" /></a></div>\n</div>\n</div>\n</div>\n<div class=\"a\" data-target=\"widget-block-b\">&nbsp;</div>\n</section>"
+    visibility: Visible
+    blockType: Home
+    updated_at: 1384938103647
+    id: a338d710487d11e39cd3bb1bf1e7ed9e4166e2f0dec543c8
+---
+<section class="widget widget-block-a slider-slim-arrows">
+<div class="slider-wrap">Just test block</div>
+</section>

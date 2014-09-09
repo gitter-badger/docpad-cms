@@ -1,0 +1,60 @@
+<ul class="page-sidebar-menu">
+    <li class="start <%- page == 'menu' ? 'active' : '' %>">
+        <a href="#menu">
+            <i class="fa fa-sitemap"></i>
+            <span class="title">Menus</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="<%- page == 'page' ? 'active' : '' %>">
+        <a href="#page">
+            <i class="fa fa-folder-open"></i>
+            <span class="title">Pages</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="<%- page == 'news' ? 'active' : '' %>">
+        <a href="#news">
+            <i class="fa fa-star"></i>
+            <span class="title">News</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="<%- page == 'block' ? 'active' : '' %>">
+        <a href="#block">
+            <i class="fa fa-table"></i>
+            <span class="title">Blocks</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="<%- page == 'files' ? 'active' : '' %>">
+        <a href="#files">
+            <i class="fa fa-files-o"></i>
+            <span class="title">Files</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="<%- page == 'forms' ? 'active' : '' %>">
+        <a href="#forms">
+            <i class="fa fa-pencil-square-o"></i>
+            <span class="title">Forms</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <% if (app.user.role == 'chiefadmin') { %>
+    <li class="<%- page == 'members' ? 'active' : '' %>">
+        <a href="#members">
+            <i class="fa fa-user"></i>
+            <span class="title">Admin Users</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <% } %>
+    <li class="<%- page == 'parameters' ? 'active' : '' %>">
+        <a href="#parameters/edit/path/params.html">
+            <i class="fa fa-wrench"></i>
+            <span class="title">Parameters</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+</ul>

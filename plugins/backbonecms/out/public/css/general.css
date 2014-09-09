@@ -1,0 +1,19 @@
+#form-input-edit-visibility,
+#form-input-edit-standalonePage {
+    margin-left: 20px;
+}
+.ui-datepicker {
+    background-color: white;
+}
+.file-upload-delete-btn {
+    margin-left: 35px;
+}
+td.sub-menu-level {
+    padding-left: 30px !important;
+}
+
+.header .navbar-brand img {
+    height: 42px;
+    margin-top: -14px;
+    margin-left: 17px;
+}

@@ -1,0 +1,211 @@
+<div id="page">
+    <p></p>
+
+    <h2>Edit form</h2>
+
+    <div id="edit-form-confirm-delete" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header"><h4>Delete form?</h4></div>
+        <div class="modal-body"><p>Doing this will erase permanently all data related to this content. It cannot be
+            undone.</p></div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <button id="edit-form-confirm-delete-button" class="btn btn-danger">Delete form</button>
+        </div>
+    </div>
+    <div class="well" style="display: block;"><a id="edit-form-list-button"
+                                                 class="btn btn-primary btn-small form-delete-button"
+                                                 href="#forms"><span
+            class="icon-arrow-left icon-white"></span> Forms</a> &nbsp; <a id="edit-form-delete-button"
+                                                                           class="btn btn-danger btn-small form-delete-button"
+                                                                           href="#delete"
+                                                                           data-toggle="modal"><span
+            class="icon-trash icon-white"></span> Delete form</a> &nbsp; <a id="edit-form-save-button"
+                                                                            class="btn btn-success btn-small form-save-button"
+                                                                            href="#save"><span
+            class="icon-download-alt icon-white"></span> Save form</a></div>
+    <div class="well" style="display: block;">
+        <form id="edit-form" class="form-horizontal main-edit-form" data-model="form"
+              onsubmit="return false;">
+
+            <% if (document.meta.standalonePage == 'standalone') { %>
+            <div id="field-edit-url" class="control-group form-component-text">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-url">Url</label>
+
+                    <div class="controls">
+                        <%= document.url %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+            <div id="field-edit-name" class="control-group form-component-text">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-name">Name</label>
+
+                    <div class="controls">
+                        <input id="form-input-edit-name" class="form-value input-xlarge no-halo" type="text"
+                               value="<%= document.meta.name %>" placeholder="Name" name="name">
+                    </div>
+                </div>
+            </div>
+            <div id="field-edit-email" class="control-group form-component-text">
+                <div class="form-field-content"><label class="control-label" for="form-input-edit-email">Email</label>
+
+                    <div class="controls">
+                        <input id="form-input-edit-email" class="form-value input-xlarge no-halo" type="text"
+                               value="<%= document.meta.email %>" placeholder="Email" name="email">
+                    </div>
+                </div>
+            </div>
+            <div id="field-edit-pageType" class="control-group form-component-choice">
+                <div class="form-field-content"><label class="control-label" for="form-input-edit-pageType">Page type
+                    where form
+                    should be showed</label>
+
+                    <div class="controls"><select id="form-input-edit-pageType" class="input-xlarge form-value no-halo"
+                                                  name="pageType">
+                        <option id="form-input-edit-pageType-0" name="pageType" value="page"
+                        <%= (document.meta.pageType == 'page' ? 'selected="selected"' : '') %>>Pages</option>
+                        <option id="form-input-edit-pageType-1" name="pageType" value="news"
+                        <%= (document.meta.pageType == 'news' ? 'selected="selected"' : '') %>>News</option>
+                        <option id="form-input-edit-pageType-2" name="pageType" value="homePage"
+                        <%= (document.meta.pageType == 'homePage' ? 'selected="selected"' : '') %>>Home page</option>
+                        <option id="form-input-edit-pageType-3" name="pageType" value="newsPage"
+                        <%= (document.meta.pageType == 'newsPage' ? 'selected="selected"' : '') %>>News list
+                        page</option>
+                        <option id="form-input-edit-pageType-4" name="pageType" value="searchPage"
+                        <%= (document.meta.pageType == 'searchPage' ? 'selected="selected"' : '') %>>Search
+                        page</option>
+                    </select></div>
+                </div>
+            </div>
+            <div id="field-edit-formTitle" class="control-group form-component-text">
+                <div class="form-field-content"><label class="control-label"
+                                                       for="form-input-edit-formTitle">Title</label>
+
+                    <div class="controls">
+                        <input id="form-input-edit-formTitle" class="form-value input-xlarge no-halo" type="text"
+                               value="<%= document.meta.cms.formTitle %>" placeholder="Title" name="formTitle">
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-formDescription" class="control-group form-component-text">
+                <div class="form-field-content"><label class="control-label"
+                                                       for="form-input-edit-formDescription">Description before form</label>
+
+                    <div class="controls">
+                        <textarea id="form-input-edit-formDescription" class="form-value input-xlarge no-halo"
+                                  placeholder="Description before form" name="formDescription"><%= document.meta.cms.formDescription %></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-formSubtitle" class="control-group form-component-text">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-formSubtitle">
+                        Subtitle (when form is shown in bottom block)
+                    </label>
+
+                    <div class="controls"><input id="form-input-edit-formSubtitle"
+                                                 class="form-value input-xlarge no-halo"
+                                                 type="text" value="<%= document.meta.cms.formSubtitle %>"
+                                                 placeholder="Subtitle" name="formSubtitle">
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-formDescriptionAfter" class="control-group form-component-text">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-formDescription">Description after form (when form has own page)</label>
+
+                    <div class="controls">
+                        <textarea id="form-input-edit-formDescriptionAfter" class="form-value input-xlarge no-halo"
+                                  placeholder="Description after form" name="formDescriptionAfter"><%= document.meta.cms.formDescriptionAfter %></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-formButton" class="control-group form-component-text">
+                <div class="form-field-content"><label class="control-label" for="form-input-edit-formButton">Submit
+                    button
+                    name</label>
+
+                    <div class="controls"><input id="form-input-edit-formButton" class="form-value input-xlarge no-halo"
+                                                 type="text"
+                                                 value="<%= document.meta.cms.formButton %>"
+                                                 placeholder="Submit button name" name="formButton"></div>
+                </div>
+            </div>
+
+            <div id="field-edit-visibility" class="control-group form-component-choice">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-visibility">Visibility</label>
+
+                    <div class="controls">
+                        <div id="form-input-edit-visibility" class="radio-list">
+                            <label class="radio-inline">
+                                <input id="form-input-edit-visibility-0" class="form-value first-checked" type="radio"
+                                       name="visibility" value="Visible"
+                                <%= ((!document.meta.visibility || document.meta.visibility == 'Visible') ? 'checked="checked"' : '') %>>
+                                Visible
+                            </label>
+                            &nbsp;
+                            <label class="radio-inline">
+                                <input id="form-input-edit-visibility-1" class="form-value" type="radio"
+                                       name="visibility" value="Not visible"
+                                <%= (document.meta.visibility == 'Not visible' ? 'checked="checked"' : '') %>>
+                                Not visible
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-standalonePage" class="control-group form-component-choice">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-standalonePage">
+                        Show form in bottom block or at its own page
+                    </label>
+
+                    <div class="controls">
+                        <div id="form-input-edit-standalonePage" class="radio-list">
+                            <label class="radio-inline">
+                                <input id="form-input-edit-standalonePage-0" class="form-value first-checked" type="radio"
+                                       name="standalonePage" value="bottom"
+                                <%= ((!document.meta.standalonePage || document.meta.standalonePage == 'bottom') ? 'checked="checked"' : '') %>>
+                                Bottom of page
+                            </label>
+                            &nbsp;
+                            <label class="radio-inline">
+                                <input id="form-input-edit-standalonePage-1" class="form-value" type="radio"
+                                       name="standalonePage" value="standalone"
+                                <%= (document.meta.standalonePage == 'standalone' ? 'checked="checked"' : '') %>>
+                                Has own page
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-formJson" class="control-group form-component-textarea">
+                <div class="form-field-content"><label class="control-label" for="form-input-edit-formJson">Form
+                    Elements</label>
+
+                    <div class="controls">
+                        <input id="form-input-edit-formJson"
+                               class="form-value input-xlarge no-halo"
+                               type="hidden" value="<%- document.meta.cms.formJson %>"
+                               name="formJson">
+                            <div id="form-input-edit-formJson-place" class="" style="width:980px;" name="formJson-place">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p></p>
+</div>

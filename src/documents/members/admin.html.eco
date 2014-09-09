@@ -1,0 +1,10 @@
+---
+cms: {  }
+name: admin
+type: members
+password: admin
+role: chiefadmin
+write: false
+render: false
+---
+undefined

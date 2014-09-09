@@ -1,0 +1,18 @@
+<div class="generated-form">
+    <form action="/save-form" method="post">
+        <input type="hidden" name="form-email" value="<%= @document.email %>"/>
+        <input type="hidden" name="form-name" value="<%= @document.name %>"/>
+
+        <h3><%= @document.cms.formTitle %></h3>
+        <p><%- @document.cms.formDescription %></p>
+        <label class="form-subtitle"><%= @document.cms.formSubtitle %></label>
+
+        <% formJson = @document.formJson %>
+        <% formJson = JSON.parse(formJson) %>
+        <% fieldList = formJson.fields %>
+
+        <%- @partial('form', {fieldList: fieldList}) %>
+
+        <div><input type="submit" value="<%= @document.cms.formButton %>"/></div>
+    </form>
+</div>

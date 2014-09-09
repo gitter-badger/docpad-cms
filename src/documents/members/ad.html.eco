@@ -1,0 +1,10 @@
+---
+cms: {  }
+name: ad
+password: '1'
+role: admin
+type: members
+write: false
+render: false
+---
+undefined

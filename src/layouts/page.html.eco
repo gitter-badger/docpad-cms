@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<%- @content %>
+<p>
+
+<% for item in @getBlocks(): %>
+    <%- item.content %>
+<% end %>
+
+<%- @renderForm(@document) %>

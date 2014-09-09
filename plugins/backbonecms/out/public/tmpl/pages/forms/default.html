@@ -1,0 +1,32 @@
+<div id="page"><p></p>
+
+    <h2>Forms</h2>
+
+    <div class="well"><a class="btn btn-primary btn-small" href="#forms/edit"><span
+            class="icon-plus icon-white"></span> Create form</a></div>
+    <table id="list" class="list-forms table table-hover">
+        <thead>
+        <tr>
+            <td class="item-name">Name</td>
+            <td class="item-name">Page Type</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+            <% for(var i in collection) { %>
+            <tr>
+                <td class="field-name"><%- collection[i].meta.name %></td>
+                <td class="field-page">
+                    <%= collection[i].meta.pageType == 'page' ? 'Pages' : '' %>
+                    <%= collection[i].meta.pageType == 'news' ? 'News' : '' %>
+                    <%= collection[i].meta.pageType == 'homePage' ? 'Home page' : '' %>
+                    <%= collection[i].meta.pageType == 'newsPage' ? 'News list page' : '' %>
+                    <%= collection[i].meta.pageType == 'searchPage' ? 'Search page' : '' %>
+                </td>
+                <td><a class="btn btn-primary btn-small" href="#<%= page %>/edit/path/<%= collection[i].relativePath %>"><span
+                        class="icon-pencil icon-white"></span> Edit</a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <p></p></div>

@@ -1,0 +1,73 @@
+{
+  "name": "docpad-plugin-restapi",
+  "version": "2.2.0",
+  "description": "Add a REST API to your DocPad project for interacting with DocPad files and documents",
+  "homepage": "https://github.com/docpad/docpad-plugin-restapi",
+  "keywords": [
+    "docpad",
+    "docpad-plugin",
+    "crud",
+    "rest",
+    "api"
+  ],
+  "author": {
+    "name": "Myplanet Internet Solutions Ltd.",
+    "email": "hello@myplanetdigital.com",
+    "url": "http://www.myplanetdigital.com/"
+  },
+  "maintainers": [
+    {
+      "name": "Neil Taylor",
+      "email": "neil.t@myplanetdigital.com",
+      "url": "https://github.com/neilbaylorrulez"
+    },
+    {
+      "name": "Benjamin Lupton",
+      "email": "b@lupton.cc",
+      "url": "https://github.com/balupton"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Neil Taylor",
+      "email": "neil.t@myplanetdigital.com",
+      "url": "https://github.com/neilbaylorrulez"
+    },
+    {
+      "name": "Benjamin Lupton",
+      "email": "b@lupton.cc",
+      "url": "https://github.com/balupton"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/docpad/docpad-plugin-restapi/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/docpad/docpad-plugin-restapi/issues"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "dependencies": {
+    "taskgroup": "~3.2.0"
+  },
+  "peerDependencies": {
+    "docpad": ">=6 <7"
+  },
+  "devDependencies": {
+    "rimraf": "~2.2.2",
+    "chai": "~1.7.2",
+    "superagent": "~0.15.4",
+    "coffee-script": "~1.6.2",
+    "docpad": ">=6 <7"
+  },
+  "main": "./out/restapi.plugin.js",
+  "scripts": {
+    "test": "node ./out/restapi.test.js"
+  },
+  "readme": "# CRUD REST API Plugin for [DocPad](http://docpad.org)\n\n[![Build Status](https://secure.travis-ci.org/docpad/docpad-plugin-restapi.png?branch=master)](http://travis-ci.org/docpad/docpad-plugin-restapi \"Check this project's build status on TravisCI\")\n[![NPM version](https://badge.fury.io/js/docpad-plugin-restapi.png)](https://npmjs.org/package/docpad-plugin-restapi \"View this project on NPM\")\n[![Gittip donate button](http://badgr.co/gittip/docpad.png)](https://www.gittip.com/docpad/ \"Donate weekly to this project using Gittip\")\n[![Flattr donate button](https://raw.github.com/balupton/flattr-buttons/master/badge-89x18.gif)](http://flattr.com/thing/344188/balupton-on-Flattr \"Donate monthly to this project using Flattr\")\n[![PayPayl donate button](https://www.paypalobjects.com/en_AU/i/btn/btn_donate_SM.gif)](https://www.paypal.com/au/cgi-bin/webscr?cmd=_flow&SESSION=IHj3DG3oy_N9A9ZDIUnPksOi59v0i-EWDTunfmDrmU38Tuohg_xQTx0xcjq&dispatch=5885d80a13c0db1f8e263663d3faee8d14f86393d55a810282b64afed84968ec \"Donate once-off to this project using Paypal\")\n\nAdd a REST API to your DocPad project for interacting with DocPad files and documents\n\n[REST API Specification can be found on the Web Write Project's Specification Page](https://github.com/webwrite/spec#rest)\n\n\n## Install\n\n```\ndocpad install restapi\n```\n\n\n\n## History\n[You can discover the history inside the `History.md` file](https://github.com/bevry/docpad-plugin-restapi/blob/master/History.md#files)\n\n\n## Contributing\n[You can discover the contributing instructions inside the `Contributing.md` file](https://github.com/bevry/docpad-plugin-restapi/blob/master/Contributing.md#files)\n\n\n## License\nLicensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://creativecommons.org/licenses/MIT/)\n<br/>Copyright &copy; 2013+ [Myplanet Internet Solutions Ltd.](http://www.myplanetdigital.com/) <hello@myplanetdigital.com>\n",
+  "readmeFilename": "README.md",
+  "_id": "docpad-plugin-restapi@2.2.0",
+  "_from": "docpad-plugin-restapi@>=2.2.0"
+}

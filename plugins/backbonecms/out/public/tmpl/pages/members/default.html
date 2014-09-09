@@ -1,0 +1,29 @@
+<div id="page"><p></p>
+
+    <h2>Members</h2>
+
+    <div class="well"><a class="btn btn-primary btn-small" href="#members/edit"><span
+            class="icon-plus icon-white"></span> Create member</a></div>
+    <table id="list" class="list-news table table-hover">
+        <thead>
+        <tr>
+            <td class="item-name">Name</td>
+            <td class="item-role">Role</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+            <% for(var i in collection) { %>
+            <tr>
+                <td class="field-username"><%- collection[i].meta.name %></td>
+                <td class="field-role"><%- collection[i].meta.role == 'chiefadmin' ? 'Administrator' : 'Chief Administrator' %></td>
+                <td>
+                    <a class="btn btn-primary btn-small" href="#<%= page %>/edit/path/<%= collection[i].relativePath %>">
+                        <span class="icon-pencil icon-white"></span> Edit
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <p></p></div>

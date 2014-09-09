@@ -1,0 +1,61 @@
+<div id="page">
+<p></p>
+<h2>Edit params</h2>
+
+<div id="edit-form-confirm-delete" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header"><h4>Delete params?</h4></div>
+    <div class="modal-body"><p>Doing this will erase permanently all data related to this content. It cannot be
+        undone.</p></div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button id="edit-form-confirm-delete-button" class="btn btn-danger">Delete params</button>
+    </div>
+</div>
+<div class="well" style="display: block;"><a id="edit-form-save-button"
+                                             class="btn btn-success btn-small form-save-button"
+                                             href="/cms/params/edit?url=/params"><span
+        class="icon-download-alt icon-white"></span> Save params</a></div>
+<div class="well" style="display: block;">
+<form id="edit-form" class="form-horizontal main-edit-form" data-model="params"
+      data-fields="{&quot;pageImage&quot;:null,&quot;newsImage&quot;:null}"
+      data-deps="{&quot;pageImage&quot;:[],&quot;newsImage&quot;:[]}"
+      data-keys="[&quot;pageImage&quot;,&quot;newsImage&quot;]" onsubmit="return false;">
+
+<div id="field-edit-pageImage" class="control-group form-component-file" data-use="standard">
+    <div class="form-field-content"><label class="control-label" for="form-input-edit-pageImage">Thumbnail for
+        Pages</label>
+
+        <div class="controls" style="position: relative;">
+            <div class="state state-loading" style="display: none;"></div>
+            <div class="state state-uploading" style="display: none;">uploading...</div>
+            <div class="state state-input-file" style="display: block;"><a class="btn btn-primary upload-file" href="#">Choose
+                file</a><input id="form-input-edit-pageImage" class="input-xlarge" type="file" name="file[pageImage]"
+                               style="position: absolute; opacity: 0; z-index: 2; left: 0px; top: -5px; width: 120px; height: 38px;"><input
+                    id="form-input-edit-pageImage-hidden" class="form-value" type="hidden" value="" name="pageImage">
+            </div>
+            <div class="state state-image" style="display: none;"></div>
+            <div class="state state-unknown" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+
+<div id="field-edit-newsImage" class="control-group form-component-file" data-use="standard">
+    <div class="form-field-content"><label class="control-label" for="form-input-edit-newsImage">Thumbnail for
+        News</label>
+
+        <div class="controls" style="position: relative;">
+            <div class="state state-loading" style="display: none;"></div>
+            <div class="state state-uploading" style="display: none;">uploading...</div>
+            <div class="state state-input-file" style="display: block;"><a class="btn btn-primary upload-file" href="#">Choose
+                file</a><input id="form-input-edit-newsImage" class="input-xlarge" type="file" name="file[newsImage]"
+                               style="position: absolute; opacity: 0; z-index: 2; left: 0px; top: -5px; width: 120px; height: 38px;"><input
+                    id="form-input-edit-newsImage-hidden" class="form-value" type="hidden" value="" name="newsImage">
+            </div>
+            <div class="state state-image" style="display: none;"></div>
+            <div class="state state-unknown" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+</form>
+</div>
+<p></p></div>

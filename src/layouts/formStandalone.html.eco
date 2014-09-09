@@ -1,0 +1,24 @@
+---
+layout: page
+---
+<div class="generated-form form-on-own-page">
+    <form action="/save-form" method="post">
+        <input type="hidden" name="form-email" value="<%= @document.cms.email %>"/>
+        <input type="hidden" name="form-name" value="<%= @document.name %>"/>
+
+        <p><%- @document.cms.formDescription %></p>
+
+        <% @document.title = @document.name %>
+        <% formJson = @document.cms.formJson %>
+        <% formJson = JSON.parse(formJson) %>
+        <% fieldList = formJson.fields %>
+
+        <%- @partial('form', {fieldList: fieldList}) %>
+
+        <div class="input-block-wrap">
+            <div><input type="submit" value="<%= @document.cms.formButton %>"/></div>
+        </div>
+
+        <p><%- @document.cms.formDescriptionAfter %></p>
+    </form>
+</div>

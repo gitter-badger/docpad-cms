@@ -1,0 +1,93 @@
+<div id="page">
+    <p></p>
+
+    <h2>Edit block</h2>
+
+    <div id="edit-form-confirm-delete" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header"><h4>Delete block?</h4></div>
+        <div class="modal-body"><p>Doing this will erase permanently all data related to this content. It cannot be
+            undone.</p></div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <button id="edit-form-confirm-delete-button" class="btn btn-danger">Delete block</button>
+        </div>
+    </div>
+
+    <div class="well" style="display: block;">
+        <a id="edit-form-list-button" class="btn btn-primary btn-small form-delete-button"
+           href="#block"><span class="icon-arrow-left icon-white"></span>
+        Blocks</a>
+        &nbsp;
+        <a id="edit-form-delete-button" class="btn btn-danger btn-small form-delete-button"
+            href="#delete" data-toggle="modal">
+            <span class="icon-trash icon-white"></span> Delete block
+        </a>
+        &nbsp;
+        <a id="edit-form-save-button" class="btn btn-success btn-small form-save-button"
+           href="#block/save">
+            <span class="icon-download-alt icon-white"></span> Save block
+        </a>
+    </div>
+
+    <div class="error-messages"></div>
+
+    <div class="well" style="display: block;">
+        <form id="edit-form" class="form-horizontal main-edit-form" data-model="block"
+              onsubmit="return false;">
+            <div id="field-edit-name" class="control-group form-component-text">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-name">Name</label>
+
+                    <div class="controls">
+                        <input id="form-input-edit-name" class="form-value input-xlarge no-halo"
+                                                 type="text" value="<%= document.meta.name %>" placeholder="Name" name="name">
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-content" class="control-group form-component-textarea">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-content">Content</label>
+
+                    <div class="controls">
+                        <textarea id="form-input-edit-content" class="form-value input-xlarge no-halo" name="content" ><%= document.content %></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-visibility" class="control-group form-component-choice">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-visibility">Visibility</label>
+
+                    <div class="controls">
+                        <div id="form-input-edit-visibility" class="radio-list">
+                            <label class="radio-inline">
+                                <input id="form-input-edit-visibility-0" class="form-value first-checked" type="radio" name="visibility" value="Visible" <%= ((!document.meta.visibility || document.meta.visibility == 'Visible') ? 'checked="checked"' : '') %>>
+                                Visible
+                            </label>
+                            &nbsp;
+                            <label class="radio-inline">
+                                <input id="form-input-edit-visibility-1" class="form-value" type="radio" name="visibility" value="Not visible" <%= (document.meta.visibility == 'Not visible' ? 'checked="checked"' : '') %>>
+                                Not visible
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-edit-blockType" class="control-group form-component-choice">
+                <div class="form-field-content">
+                    <label class="control-label" for="form-input-edit-blockType">Block type</label>
+
+                    <div class="controls">
+                        <select id="form-input-edit-blockType" class="input-xlarge form-value no-halo" name="blockType">
+                            <option id="form-input-edit-blockType-0" name="blockType" value="Home" selected="selected">Home</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p></p>
+</div>
